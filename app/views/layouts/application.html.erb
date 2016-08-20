@@ -6,9 +6,17 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body class="body <%= controller_name %>-control <%= action_name %>-action">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-brand">Nihongo Up!</div>
+    </div>
+  </nav>
+  <div class="container">
+    <fieldset class="form-group">
+      <input type="email" class="form-control" placeholder="Search">
+    </fieldset>
+    <%= yield %>
+  </div>
 </body>
 </html>
