@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'media#index'
+  root 'titles#index'
 end
