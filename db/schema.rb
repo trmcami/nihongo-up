@@ -11,9 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160827171701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "title_types", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "titles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "external_id"
+    t.text     "summary"
+    t.datetime "last_sync"
+    t.integer  "title_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "titles", ["title_type_id"], name: "index_titles_on_title_type_id", using: :btree
+
+  add_foreign_key "titles", "title_types"
 end
