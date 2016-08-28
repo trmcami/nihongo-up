@@ -19,6 +19,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
+gem 'sidekiq'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
