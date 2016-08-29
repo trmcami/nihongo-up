@@ -16,5 +16,7 @@ class InitialTitlesFetcher
         title.title_type = title_type
       end
     end
+
+    3.times { TitleDetailsFetcher.perform_async(100) }
   end
 end
