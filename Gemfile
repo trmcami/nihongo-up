@@ -21,6 +21,8 @@ gem 'autoprefixer-rails'
 
 gem 'sidekiq'
 
+gem 'draper'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
