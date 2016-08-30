@@ -23,6 +23,8 @@ gem 'sidekiq'
 
 gem 'draper'
 
+gem 'clearance'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
