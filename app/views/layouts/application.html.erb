@@ -9,13 +9,28 @@
 <body class="body <%= controller_name %>-control <%= action_name %>-action">
   <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container">
-      <div class="navbar-brand">Nihongo Up!</div>
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Nihongo Up!</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <% if signed_in? %>
+            <li><a><%= current_user.email %></a></li>
+            <li><%= link_to t('.sign_out'), sign_out_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to t('.sign_in'), sign_in_path %></li>
+            <li><%= link_to t('.sign_up'), sign_up_path %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </nav>
   <div class="container">
-    <fieldset class="form-group">
-      <input type="email" class="form-control" placeholder="Search">
-    </fieldset>
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
     <%= yield %>
   </div>
 </body>
