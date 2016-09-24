@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830004429) do
+ActiveRecord::Schema.define(version: 20160911231206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "difficulty_ratings", force: :cascade do |t|
+    t.integer "title_id"
+    t.integer "user_id"
+    t.integer "difficulty_id"
+  end
+
+  add_index "difficulty_ratings", ["title_id"], name: "index_difficulty_ratings_on_title_id", using: :btree
+  add_index "difficulty_ratings", ["user_id"], name: "index_difficulty_ratings_on_user_id", using: :btree
 
   create_table "title_types", force: :cascade do |t|
     t.string "name"
@@ -45,5 +54,7 @@ ActiveRecord::Schema.define(version: 20160830004429) do
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
+  add_foreign_key "difficulty_ratings", "titles"
+  add_foreign_key "difficulty_ratings", "users"
   add_foreign_key "titles", "title_types"
 end
