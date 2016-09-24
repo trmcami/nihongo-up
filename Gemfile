@@ -25,6 +25,8 @@ gem 'draper'
 
 gem 'clearance'
 
+gem 'active_hash'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
