@@ -3,20 +3,6 @@
 </fieldset>
 <div class="titles-list">
   <div class="row">
-    <% @titles.each do |title| %>
-      <div class="col-sm-12 col-md-4">
-        <div class="title-item">
-          <div class="title-name text-center"><%= title.name %></div>
-          <div class="title-content">
-            <div class="title-image">
-              <img src="<%= title.image %>">
-            </div>
-            <div class="title-plot">
-              <%= title.summary %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    <%= render @titles %>
   </div>
 </div>
